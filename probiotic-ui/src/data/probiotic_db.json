@@ -1,0 +1,231 @@
+[
+    {
+        "disease": "Bloating",
+        "probiotic": "Lactobacillus acidophilus",
+        "food_sources": [
+            "Curd",
+            "buttermilk"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Bloating",
+        "probiotic": "Bifidobacterium longum",
+        "food_sources": [
+            "Probiotic curd",
+            "fermented dairy"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Bloating",
+        "probiotic": "Streptococcus thermophilus",
+        "food_sources": [
+            "Yogurt",
+            "curd"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Bloating",
+        "probiotic": "Saccharomyces boulardii",
+        "food_sources": [
+            "Probiotic supplements"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Bloating",
+        "probiotic": "Bacillus coagulans",
+        "food_sources": [
+            "Fermented foods",
+            "supplements"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Irritable Bowel Syndrome",
+        "probiotic": "Lactobacillus acidophilus",
+        "food_sources": [
+            "yogurt and kefir"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "IBS - M",
+        "probiotic": "Bifidobacterium lactis",
+        "food_sources": [
+            "fermented milk"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "IBS - D",
+        "probiotic": "Saccharomyces boulardii",
+        "food_sources": [
+            "peels of tropical fruits",
+            "notably lychee and mangosteen"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "IBS - C",
+        "probiotic": "Lactiplantibacillus plantarum",
+        "food_sources": [
+            "kimchi",
+            "pickled cucumbers"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Improved resistance to E. coli infection in humans",
+        "probiotic": "Lactobacillus acidophilus",
+        "food_sources": [
+            "yogurt",
+            "fermented milk"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "SCFA production",
+        "probiotic": "Bifidobacterium longum",
+        "food_sources": [
+            "Fermented dairy products"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "anti-inflammatory effects",
+        "probiotic": "Lactobacillus plantarum",
+        "food_sources": [
+            "Fermented vegetables (e.g.",
+            "sauerkraut",
+            "kimchi)"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Colorectal cancer patients",
+        "probiotic": "L. acidophilus, B. longum, B. bifidum",
+        "food_sources": [
+            "probiotic supplements"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "stress-related disorders",
+        "probiotic": "L. helveticus, B. longum, L. plantarum",
+        "food_sources": [
+            "probiotic supplements"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Lactobacillus, Bifidobacterium",
+        "food_sources": [
+            "Yogurt"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Lactobacillus kefiri, yeasts",
+        "food_sources": [
+            "Kefir"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "lactic acid bacteria",
+        "food_sources": [
+            "Buttermilk (Traditional fermented)"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Lactobacillus plantarum, Leuconostoc",
+        "food_sources": [
+            "Kimchi"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Rhizopus oligosporus + probiotic bacteria",
+        "food_sources": [
+            "Tempeh"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Aspergillus oryzae",
+        "food_sources": [
+            "Miso"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Acetic acid bacteria",
+        "food_sources": [
+            "Kombucha"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Type 2 Diabetes",
+        "probiotic": "Lactobacillus plantarum",
+        "food_sources": [
+            "Sauerkraut"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Respiratory Infections",
+        "probiotic": "Lactobacillus rhamnosus GG",
+        "food_sources": [
+            "Yogurt",
+            "kefir"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Respiratory Infections",
+        "probiotic": "Lactobacillus acidophilus NCFM",
+        "food_sources": [
+            "Curd",
+            "buttermilk"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Respiratory Infections",
+        "probiotic": "Bifidobacterium lactis",
+        "food_sources": [
+            "fermented milk"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Respiratory Infections",
+        "probiotic": "Lactobacillus plantarum",
+        "food_sources": [
+            "fermented vegetables",
+            "yogurt"
+        ],
+        "evidence": ""
+    },
+    {
+        "disease": "Respiratory Infections",
+        "probiotic": "Streptococcus thermophilus",
+        "food_sources": [
+            "Yogurt",
+            "curd"
+        ],
+        "evidence": ""
+    }
+]

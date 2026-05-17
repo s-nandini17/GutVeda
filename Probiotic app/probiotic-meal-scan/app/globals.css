@@ -1,0 +1,20 @@
+/* All styles are injected via the STYLES constant in page.tsx for single-file simplicity */
+/* This file just handles the base reset and font loading fallback */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #E8DCCB;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
