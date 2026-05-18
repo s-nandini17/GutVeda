@@ -353,11 +353,16 @@ export default function GutVeda() {
   const lowMeals = mealLogs.filter((m) => m.score < 6).length;
 
   // ── Tips ──
-  const dosha = profile.dosha || "";
-  const doshaKey = dosha.startsWith("Vata") ? "Vata"
-    : dosha.startsWith("Pitta") ? "Pitta"
-      : dosha.startsWith("Kapha") ? "Kapha"
-        : "default";
+  const dosha = profile?.dosha || "";
+
+  const doshaKey =
+    dosha.startsWith("Vata")
+      ? "Vata"
+      : dosha.startsWith("Pitta")
+        ? "Pitta"
+        : dosha.startsWith("Kapha")
+          ? "Kapha"
+          : "default";
   const tips = WELLNESS_TIPS[doshaKey] || WELLNESS_TIPS.default;
 
   // ─────────────────────────────────────────────
