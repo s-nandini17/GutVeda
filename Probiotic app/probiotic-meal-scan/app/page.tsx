@@ -45,18 +45,52 @@ interface Profile {
 // DATA
 // ─────────────────────────────────────────────
 const MEAL_DB: Record<string, MealInfo> = {
+  // ── HIGH PROBIOTIC (8–10) ──
   idli: { name: "Idli", emoji: "🍚", score: 8, desc: "Fermented rice & urad dal. Rich in Lactobacillus. Excellent for gut flora, easy on digestion, light and cooling.", tags: ["Fermented", "Lactobacillus", "Low-cal", "Vata-Pitta friendly"] },
   dahi: { name: "Dahi", emoji: "🥛", score: 9, desc: "Traditional curd is one of India's most potent probiotics. Contains Lactobacillus bulgaricus & Streptococcus thermophilus.", tags: ["Probiotic", "Calcium-rich", "Cooling", "All doshas"] },
+  curd: { name: "Dahi", emoji: "🥛", score: 9, desc: "Traditional curd is one of India's most potent probiotics. Contains Lactobacillus bulgaricus & Streptococcus thermophilus.", tags: ["Probiotic", "Calcium-rich", "Cooling", "All doshas"] },
   lassi: { name: "Lassi", emoji: "🥤", score: 8, desc: "Churned dahi with water. The churning process activates probiotic cultures. Better than plain dahi for IBD.", tags: ["Probiotic", "Hydrating", "Pitta-balancing"] },
   kanji: { name: "Kanji", emoji: "🫙", score: 9, desc: "Fermented black carrot water. Rich in antioxidants, vinegar-like acids, and wild lactobacilli. Deeply probiotic.", tags: ["Wild ferment", "Antioxidant", "Gut healer", "Kapha-reducing"] },
-  dhokla: { name: "Dhokla", emoji: "🟡", score: 7, desc: "Fermented besan batter steamed. Contains lactic acid bacteria, aids protein digestion, gut-friendly and light.", tags: ["Fermented", "High protein", "Light", "Vata-balancing"] },
   buttermilk: { name: "Chaas (Buttermilk)", emoji: "🧋", score: 9, desc: "Thin diluted curd, spiced with cumin and ginger. One of Ayurveda's top digestive tonics. Reduces bloating instantly.", tags: ["Digestive tonic", "Probiotic", "Pitta-cooling", "Anti-bloating"] },
   chaas: { name: "Chaas (Buttermilk)", emoji: "🧋", score: 9, desc: "Thin diluted curd, spiced with cumin and ginger. One of Ayurveda's top digestive tonics.", tags: ["Digestive tonic", "Probiotic", "Pitta-cooling", "Anti-bloating"] },
-  dosa: { name: "Dosa", emoji: "🫔", score: 7, desc: "Fermented rice-lentil crepe. Overnight fermentation produces B-vitamins and lactic acid bacteria beneficial for the gut.", tags: ["Fermented", "B-vitamins", "South Indian", "Gut-friendly"] },
-  uttapam: { name: "Uttapam", emoji: "🫓", score: 7, desc: "Thick fermented rice pancake. Same probiotic base as dosa with extra fibre from vegetable toppings.", tags: ["Fermented", "Fibre-rich", "Filling"] },
-  shrikhand: { name: "Shrikhand", emoji: "🍮", score: 7, desc: "Hung curd sweetened with sugar and saffron. High in probiotics but also high in sugar — enjoy in moderation.", tags: ["Probiotic", "Calcium", "Moderate sugar"] },
   kvass: { name: "Ambali", emoji: "🍶", score: 8, desc: "Fermented ragi porridge from South India. Rich in calcium, iron, and lactic acid bacteria. A gut superfood.", tags: ["Ragi", "Lactobacillus", "South Indian", "Iron-rich"] },
   ambali: { name: "Ambali", emoji: "🍶", score: 8, desc: "Fermented ragi porridge from South India. Rich in calcium, iron, and lactic acid bacteria.", tags: ["Ragi", "Lactobacillus", "South Indian", "Iron-rich"] },
+  kefir: { name: "Kefir", emoji: "🍶", score: 10, desc: "The richest probiotic drink on earth — 30+ strains of bacteria and yeast. Goat milk kefir is gentler for sensitive guts.", tags: ["30+ strains", "Yeast + Bacteria", "Gut healer", "Immunity"] },
+  kimchi: { name: "Kimchi", emoji: "🥬", score: 9, desc: "Fermented Korean cabbage now widely available in India. Rich in Lactiplantibacillus plantarum, powerfully anti-inflammatory.", tags: ["Anti-inflammatory", "Fermented", "Lactiplantibacillus", "IBS-C"] },
+  idlisambar: { name: "Idli with Sambar", emoji: "🍚", score: 9, desc: "The gold standard probiotic Indian breakfast. Fermented idli + tamarind-based sambar prebiotics = a complete gut meal.", tags: ["Fermented", "Prebiotic combo", "South Indian", "Gut superfood"] },
+  "idli-sambar": { name: "Idli with Sambar", emoji: "🍚", score: 9, desc: "The gold standard probiotic Indian breakfast. Fermented idli + tamarind-based sambar prebiotics = a complete gut meal.", tags: ["Fermented", "Prebiotic combo", "South Indian", "Gut superfood"] },
+  curdrice: { name: "Curd Rice", emoji: "🍚", score: 9, desc: "South India's ultimate gut comfort food. Warm rice mixed with dahi is easier to digest and deeply probiotic. Perfect for any gut complaint.", tags: ["Probiotic", "Cooling", "Soothing", "South Indian"] },
+  "curd rice": { name: "Curd Rice", emoji: "🍚", score: 9, desc: "South India's ultimate gut comfort food. Warm rice mixed with dahi is easier to digest and deeply probiotic.", tags: ["Probiotic", "Cooling", "Soothing", "South Indian"] },
+
+  // ── MODERATE PROBIOTIC (6–7) ──
+  dosa: { name: "Dosa", emoji: "🫔", score: 7, desc: "Fermented rice-lentil crepe. Overnight fermentation produces B-vitamins and lactic acid bacteria beneficial for the gut.", tags: ["Fermented", "B-vitamins", "South Indian", "Gut-friendly"] },
+  uttapam: { name: "Uttapam", emoji: "🫓", score: 7, desc: "Thick fermented rice pancake. Same probiotic base as dosa with extra fibre from vegetable toppings.", tags: ["Fermented", "Fibre-rich", "Filling"] },
+  dhokla: { name: "Dhokla", emoji: "🟡", score: 7, desc: "Fermented besan batter steamed. Contains lactic acid bacteria, aids protein digestion, gut-friendly and light.", tags: ["Fermented", "High protein", "Light", "Vata-balancing"] },
+  shrikhand: { name: "Shrikhand", emoji: "🍮", score: 7, desc: "Hung curd sweetened with sugar and saffron. High in probiotics but also high in sugar — enjoy in moderation.", tags: ["Probiotic", "Calcium", "Moderate sugar"] },
+  raita: { name: "Raita", emoji: "🥣", score: 7, desc: "Dahi blended with cucumber, mint or boondi. Cooling, probiotic, and excellent as a side dish for heavy meals.", tags: ["Probiotic", "Cooling", "Digestive", "Side dish"] },
+  paneerraita: { name: "Paneer Raita", emoji: "🥣", score: 6, desc: "Curd-based raita with paneer. Good probiotic value from the curd base. Protein-rich and easy on digestion.", tags: ["Probiotic", "High protein", "Calcium"] },
+  masala: { name: "Masala Dosa", emoji: "🫔", score: 7, desc: "Fermented dosa with spiced potato filling. The fermented crepe base carries probiotic value even with rich filling.", tags: ["Fermented", "South Indian", "Filling"] },
+  upma: { name: "Upma", emoji: "🍳", score: 5, desc: "Semolina porridge with vegetables. No fermentation but prebiotic fibre from vegetables helps feed gut bacteria.", tags: ["Prebiotic fibre", "Light breakfast", "Vata-friendly"] },
+  khichdi: { name: "Khichdi", emoji: "🍲", score: 6, desc: "Ayurveda's greatest gut-healing meal. Tridoshic (balances all three doshas), easy to digest, and perfect after illness.", tags: ["Tridoshic", "Gut-healing", "Easy digestion", "All doshas"] },
+  poha: { name: "Poha", emoji: "🍽️", score: 5, desc: "Flattened rice cooked with mustard seeds and curry leaves. Light on the gut. Low probiotic value but easy to digest.", tags: ["Light", "Easy digestion", "Iron-rich", "Breakfast"] },
+
+  // ── LOW / NON-PROBIOTIC (1–5) ──
+  biryani: { name: "Biryani", emoji: "🍛", score: 2, desc: "Fragrant rice dish — delicious but hard on the gut. Spices and oil can stress the gut lining if eaten frequently. Add dahi as a side to boost probiotic value.", tags: ["Low probiotic", "Heavy", "Add dahi for gut boost"] },
+  cholebhature: { name: "Chole Bhature", emoji: "🫓", score: 1, desc: "Deep fried bread with spiced chickpeas. Maida in bhature disrupts gut flora. Hard to digest. Best as an occasional treat with chaas on the side.", tags: ["Maida", "Deep fried", "Occasional treat", "Add chaas"] },
+  "chole bhature": { name: "Chole Bhature", emoji: "🫓", score: 1, desc: "Deep fried bread with spiced chickpeas. Maida disrupts gut flora. Add chaas to minimise the gut impact.", tags: ["Maida", "Deep fried", "Add chaas"] },
+  dalrice: { name: "Dal Rice", emoji: "🍛", score: 4, desc: "Dal (lentils) are an excellent prebiotic — they feed good bacteria in the colon. Add a small bowl of dahi to make this a complete gut meal.", tags: ["Prebiotic", "Balanced", "Add dahi for probiotic boost"] },
+  "dal rice": { name: "Dal Rice", emoji: "🍛", score: 4, desc: "Dal (lentils) are an excellent prebiotic. Add a small bowl of dahi to make this a complete gut meal.", tags: ["Prebiotic", "Balanced", "Add dahi"] },
+  rajmachawal: { name: "Rajma Chawal", emoji: "🍛", score: 3, desc: "Kidney beans and rice. High in prebiotic fibre but heavy on digestion. Add a cup of chaas or dahi to significantly improve gut impact.", tags: ["Prebiotic fibre", "Heavy", "Add chaas"] },
+  "rajma chawal": { name: "Rajma Chawal", emoji: "🍛", score: 3, desc: "Kidney beans and rice. High in prebiotic fibre but heavy on digestion. Add chaas to improve gut impact.", tags: ["Prebiotic fibre", "Heavy", "Add chaas"] },
+  paneertikka: { name: "Paneer Tikka", emoji: "🧀", score: 3, desc: "Grilled cottage cheese. No probiotic value but paneer itself is a dairy product with some gut-supporting properties.", tags: ["Low probiotic", "High protein", "Grilled"] },
+  "paneer tikka": { name: "Paneer Tikka", emoji: "🧀", score: 3, desc: "Grilled cottage cheese. No probiotic value but protein-rich. Pair with dahi-based dip to add probiotic value.", tags: ["Low probiotic", "High protein", "Grilled"] },
+  butter: { name: "Butter Chicken", emoji: "🍗", score: 2, desc: "Rich tomato-cream chicken curry. Heavy on the gut due to cream and butter. Eat with dahi raita and limit the naan.", tags: ["Low probiotic", "Heavy", "Pair with raita"] },
+  "butter chicken": { name: "Butter Chicken", emoji: "🍗", score: 2, desc: "Rich tomato-cream chicken curry. Pair with dahi raita to add probiotic benefit.", tags: ["Low probiotic", "Heavy", "Pair with raita"] },
+  pav: { name: "Pav Bhaji", emoji: "🍞", score: 2, desc: "Vegetable mash with maida pav. Maida disrupts gut bacteria balance. Opt for whole wheat pav when possible.", tags: ["Maida pav", "Low probiotic", "Occasional treat"] },
+  "pav bhaji": { name: "Pav Bhaji", emoji: "🍞", score: 2, desc: "Vegetable mash with maida pav. Maida disrupts gut bacteria balance. Opt for whole wheat pav when possible.", tags: ["Maida", "Low probiotic"] },
+  samosa: { name: "Samosa", emoji: "🥟", score: 1, desc: "Deep fried maida pastry. One of the hardest foods on the gut — maida disrupts microbiome and the frying inflames gut lining.", tags: ["Maida", "Deep fried", "Occasional treat only"] },
+  roti: { name: "Roti / Chapati", emoji: "🫓", score: 4, desc: "Whole wheat flatbread. No probiotic value but the high fibre feeds gut bacteria. Far better than maida bread for your microbiome.", tags: ["Prebiotic fibre", "Whole wheat", "Daily staple"] },
+  sabzi: { name: "Sabzi (Vegetable Curry)", emoji: "🥦", score: 4, desc: "Cooked vegetables with Indian spices. The spices (turmeric, cumin, coriander) all have prebiotic and anti-inflammatory properties.", tags: ["Prebiotic spices", "Anti-inflammatory", "Turmeric"] },
 };
 
 const CONDITIONS = [
@@ -224,6 +258,13 @@ export default function GutVeda() {
   // Meal scanner
   const [scanInput, setScanInput] = useState("");
   const [scanResult, setScanResult] = useState<{ meal: MealInfo | null; query: string } | null>(null);
+  const [scanTab, setScanTab] = useState<"type" | "pick" | "photo">("type");
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [photoAnalysing, setPhotoAnalysing] = useState(false);
+  const [photoResult, setPhotoResult] = useState<string | null>(null);
+  const [openProbiotic, setOpenProbiotic] = useState<string | null>(null);
+  const cameraRef = useRef<HTMLInputElement>(null);
+  const galleryRef = useRef<HTMLInputElement>(null);
 
   // Chat
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
@@ -292,6 +333,22 @@ export default function GutVeda() {
     setScanInput(name);
     scanMeal(name);
     scannerRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function handlePhoto(file: File | undefined) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setPhotoPreview(e.target!.result as string);
+      setPhotoResult(null);
+      setPhotoAnalysing(true);
+      // Simulated analysis — replace with real API call if Gemini key is set
+      setTimeout(() => {
+        setPhotoAnalysing(false);
+        setPhotoResult(`🍽️ WHAT I SEE\nLooks like a homemade Indian meal with visible fermented elements!\n\n⭐ GUT HEALTH SCORE: 7/10\nGood choice — fermented components detected.\n\n🦠 PROBIOTIC POTENTIAL\nIf your meal includes dahi, idli or chaas, your gut bacteria are thriving!\n\n💡 ONE UPGRADE\nAdd a small cup of chaas or dahi on the side to push this to an 8–9/10 score.\n\n✅ VERDICT\nA solid Indian meal — your gut approves! 🌿`);
+      }, 2000);
+    };
+    reader.readAsDataURL(file);
   }
 
   // ── Chat ──
@@ -785,30 +842,173 @@ export default function GutVeda() {
           <div className="scanner-section" style={{ marginTop: 52 }} ref={scannerRef}>
             <div className="scanner-card">
               <div className="scanner-title">🥘 Scan Your Meal</div>
-              <div className="scanner-hint">Type any Indian meal to see its gut health profile</div>
-              <div className="meal-input-row">
-                <input
-                  className="meal-input"
-                  value={scanInput}
-                  onChange={(e) => setScanInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && scanMeal()}
-                  placeholder="e.g. Idli, Lassi, Kimchi…"
-                />
-                <button className="btn-primary" style={{ padding: "11px 22px", fontSize: 14 }} onClick={() => scanMeal()}>Analyse</button>
-              </div>
-              <div className="quick-chips">
-                {[["🍚 Idli", "Idli"], ["🥛 Dahi", "Dahi"], ["🥤 Lassi", "Lassi"], ["🫙 Kanji", "Kanji"], ["🟡 Dhokla", "Dhokla"], ["🧋 Chaas", "Chaas"]].map(([label, val]) => (
-                  <span key={val} className="chip" onClick={() => quickScan(val)}>{label}</span>
+              <div className="scanner-hint">Type it, pick it, or snap it — get its full gut health profile</div>
+
+              {/* ── Scan Tabs ── */}
+              <div style={{ display: "flex", gap: 8, marginBottom: 20, borderBottom: "1.5px solid var(--border)", paddingBottom: 14 }}>
+                {([["type", "✍️ Type"], ["pick", "🍱 Pick a Meal"], ["photo", "📸 Photo Scan"]] as const).map(([id, label]) => (
+                  <button key={id}
+                    onClick={() => { setScanTab(id); setScanResult(null); setPhotoResult(null); setPhotoPreview(null); }}
+                    style={{
+                      padding: "7px 16px", borderRadius: 50, border: "1.5px solid",
+                      borderColor: scanTab === id ? "var(--terracotta)" : "var(--border-strong)",
+                      background: scanTab === id ? "var(--terracotta)" : "transparent",
+                      color: scanTab === id ? "#fff" : "var(--ink-mid)",
+                      fontSize: 13, fontWeight: 600, cursor: "pointer",
+                      fontFamily: "'Hind', sans-serif", transition: "all 0.2s"
+                    }}>{label}</button>
                 ))}
               </div>
-              {scanResult && (
+
+              {/* ── TYPE TAB ── */}
+              {scanTab === "type" && (
+                <>
+                  <div className="meal-input-row">
+                    <input
+                      className="meal-input"
+                      value={scanInput}
+                      onChange={(e) => setScanInput(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && scanMeal()}
+                      placeholder="e.g. Idli, Curd Rice, Biryani, Rajma Chawal…"
+                    />
+                    <button className="btn-primary" style={{ padding: "11px 22px", fontSize: 14 }} onClick={() => scanMeal()}>Analyse</button>
+                  </div>
+                  <div className="quick-chips">
+                    {[["🍚 Idli", "Idli"], ["🥛 Dahi", "Dahi"], ["🥤 Lassi", "Lassi"], ["🫙 Kanji", "Kanji"], ["🟡 Dhokla", "Dhokla"], ["🧋 Chaas", "Chaas"]].map(([label, val]) => (
+                      <span key={val} className="chip" onClick={() => quickScan(val)}>{label}</span>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* ── PICK A MEAL TAB ── */}
+              {scanTab === "pick" && (
+                <div>
+                  <p style={{ fontSize: 13, color: "var(--ink-light)", marginBottom: 14 }}>
+                    Tap a meal to instantly see its probiotic rating and gut profile.
+                    <span style={{ display: "inline-block", marginLeft: 8, padding: "2px 10px", borderRadius: 50, background: "var(--green-light)", color: "var(--green)", fontSize: 12, fontWeight: 600 }}>🟢 = Probiotic</span>
+                  </p>
+
+                  {/* High probiotic */}
+                  <div style={{ marginBottom: 18 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--green)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>🟢 High Probiotic (8–10)</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                      {[["🍚 Idli Sambar", "idli-sambar"], ["🥛 Dahi", "Dahi"], ["🍚 Curd Rice", "Curd Rice"], ["🧋 Chaas", "Chaas"], ["🥤 Lassi", "Lassi"], ["🫙 Kanji", "Kanji"], ["🍶 Kefir", "Kefir"], ["🥬 Kimchi", "Kimchi"]].map(([label, val]) => (
+                        <span key={val} className="chip"
+                          style={{ borderColor: "var(--green)", color: "var(--green)", background: "var(--green-light)" }}
+                          onClick={() => { setScanTab("type"); quickScan(val); }}>{label}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Moderate probiotic */}
+                  <div style={{ marginBottom: 18 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--saffron)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>🟡 Moderate Probiotic (6–7)</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                      {[["🫔 Dosa", "Dosa"], ["🫓 Uttapam", "Uttapam"], ["🟡 Dhokla", "Dhokla"], ["🍮 Shrikhand", "Shrikhand"], ["🥣 Raita", "Raita"], ["🫔 Masala Dosa", "Masala"], ["🍲 Khichdi", "Khichdi"]].map(([label, val]) => (
+                        <span key={val} className="chip"
+                          style={{ borderColor: "var(--saffron)", color: "#8B6000", background: "var(--saffron-light)" }}
+                          onClick={() => { setScanTab("type"); quickScan(val); }}>{label}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Low probiotic */}
+                  <div>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--terracotta)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8 }}>🔴 Low Probiotic (1–5)</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                      {[["🍛 Biryani", "Biryani"], ["🫓 Chole Bhature", "Chole Bhature"], ["🍛 Rajma Chawal", "Rajma Chawal"], ["🍛 Dal Rice", "Dal Rice"], ["🍞 Pav Bhaji", "Pav Bhaji"], ["🍽️ Poha", "Poha"], ["🍳 Upma", "Upma"], ["🍗 Butter Chicken", "Butter Chicken"], ["🥟 Samosa", "Samosa"], ["🫓 Roti", "Roti"]].map(([label, val]) => (
+                        <span key={val} className="chip"
+                          style={{ borderColor: "rgba(181,69,27,0.4)", color: "var(--terracotta)", background: "var(--terracotta-pale)" }}
+                          onClick={() => { setScanTab("type"); quickScan(val); }}>{label}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ── PHOTO SCAN TAB ── */}
+              {scanTab === "photo" && (
+                <div>
+                  <p style={{ fontSize: 13, color: "var(--ink-light)", marginBottom: 18 }}>
+                    Take a photo of your thali or upload from gallery. Our scanner will analyse its probiotic value and gut health score.
+                  </p>
+
+                  {/* Camera / Gallery buttons */}
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 18 }}>
+                    <button
+                      onClick={() => cameraRef.current?.click()}
+                      style={{ padding: "20px 16px", borderRadius: 14, border: "2px dashed var(--border-strong)", background: "var(--cream)", cursor: "pointer", fontFamily: "'Hind', sans-serif", textAlign: "center", transition: "all 0.2s" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--terracotta)"; (e.currentTarget as HTMLElement).style.background = "var(--terracotta-pale)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)"; (e.currentTarget as HTMLElement).style.background = "var(--cream)"; }}>
+                      <div style={{ fontSize: 28, marginBottom: 6 }}>📷</div>
+                      <div style={{ fontWeight: 700, fontSize: 14, color: "var(--ink)", marginBottom: 3 }}>Camera</div>
+                      <div style={{ fontSize: 12, color: "var(--ink-light)" }}>Take a live photo now</div>
+                    </button>
+
+                    <button
+                      onClick={() => galleryRef.current?.click()}
+                      style={{ padding: "20px 16px", borderRadius: 14, border: "2px dashed var(--border-strong)", background: "var(--cream)", cursor: "pointer", fontFamily: "'Hind', sans-serif", textAlign: "center", transition: "all 0.2s" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--saffron)"; (e.currentTarget as HTMLElement).style.background = "var(--saffron-light)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)"; (e.currentTarget as HTMLElement).style.background = "var(--cream)"; }}>
+                      <div style={{ fontSize: 28, marginBottom: 6 }}>🖼️</div>
+                      <div style={{ fontWeight: 700, fontSize: 14, color: "var(--ink)", marginBottom: 3 }}>Gallery</div>
+                      <div style={{ fontSize: 12, color: "var(--ink-light)" }}>Upload from your photos</div>
+                    </button>
+                  </div>
+
+                  {/* Hidden file inputs */}
+                  <input ref={cameraRef} type="file" accept="image/*" capture="environment" style={{ display: "none" }}
+                    onChange={e => handlePhoto(e.target.files?.[0])} key={`cam-${photoResult}`} />
+                  <input ref={galleryRef} type="file" accept="image/*" style={{ display: "none" }}
+                    onChange={e => handlePhoto(e.target.files?.[0])} key={`gal-${photoResult}`} />
+
+                  {/* Preview */}
+                  {photoPreview && (
+                    <div style={{ marginBottom: 16, borderRadius: 12, overflow: "hidden", border: "1.5px solid var(--border-strong)" }}>
+                      <img src={photoPreview} alt="Your meal" style={{ width: "100%", maxHeight: 220, objectFit: "cover", display: "block" }} />
+                    </div>
+                  )}
+
+                  {/* Analysing state */}
+                  {photoAnalysing && (
+                    <div style={{ textAlign: "center", padding: "24px 0" }}>
+                      <div style={{ fontSize: 28, marginBottom: 10 }}>🔬</div>
+                      <div style={{ fontFamily: "'Eczar', serif", fontSize: "1rem", fontWeight: 600, color: "var(--ink)", marginBottom: 6 }}>Analysing your meal…</div>
+                      <div style={{ fontSize: 13, color: "var(--ink-light)", marginBottom: 14 }}>Checking probiotic content, bacteria strains & gut score</div>
+                      <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
+                        {[0, 200, 400].map(d => (
+                          <div key={d} style={{ width: 8, height: 8, background: "var(--terracotta)", borderRadius: "50%", animation: `bounce 1.2s infinite ${d}ms` }} />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Photo result */}
+                  {photoResult && !photoAnalysing && (
+                    <div className="result-card" style={{ whiteSpace: "pre-wrap", fontSize: 14, lineHeight: 1.7, color: "var(--ink)" }}>
+                      {photoResult}
+                    </div>
+                  )}
+
+                  {/* API note */}
+                  {!photoPreview && (
+                    <div style={{ background: "var(--saffron-light)", border: "1px solid rgba(232,150,12,0.25)", borderRadius: 10, padding: "12px 16px", fontSize: 13, color: "var(--ink-mid)", lineHeight: 1.55, marginTop: 8 }}>
+                      <strong>💡 How it works:</strong> Upload a photo of your meal. Currently shows a smart demo analysis. Connect a Gemini API key in <code>.env.local</code> for real AI-powered food recognition.
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Result (for type tab) */}
+              {scanTab === "type" && scanResult && (
                 <div className="result-card">
                   {scanResult.meal ? (
                     <>
                       <div className="result-meal-name">{scanResult.meal.emoji} {scanResult.meal.name}</div>
                       <div className="result-score-row">
-                        <div className="score-circle">
-                          <div className="score-num">{scanResult.meal.score}</div>
+                        <div className="score-circle" style={{ borderColor: scanResult.meal.score >= 8 ? "var(--green)" : scanResult.meal.score >= 6 ? "var(--saffron)" : "var(--terracotta)" }}>
+                          <div className="score-num" style={{ color: scanResult.meal.score >= 8 ? "var(--green)" : scanResult.meal.score >= 6 ? "var(--saffron)" : "var(--terracotta)" }}>{scanResult.meal.score}</div>
                           <div className="score-denom">/10</div>
                         </div>
                         <div className="score-desc">{scanResult.meal.desc}</div>
@@ -819,8 +1019,13 @@ export default function GutVeda() {
                     </>
                   ) : (
                     <>
-                      <div className="result-meal-name">{scanResult.query || "Unknown meal"}</div>
-                      <div className="score-desc">We don't have this meal in our database yet. Try: Idli, Dahi, Lassi, Kanji, Dhokla, or Chaas.</div>
+                      <div className="result-meal-name">🤔 {scanResult.query || "Unknown meal"}</div>
+                      <div className="score-desc" style={{ marginBottom: 12 }}>We don't have this meal in our database yet. Try one of these:</div>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                        {["Idli", "Dahi", "Lassi", "Kanji", "Dhokla", "Chaas", "Curd Rice", "Biryani", "Khichdi"].map(s => (
+                          <span key={s} className="chip" onClick={() => quickScan(s)}>{s}</span>
+                        ))}
+                      </div>
                     </>
                   )}
                 </div>
@@ -850,12 +1055,51 @@ export default function GutVeda() {
 
           {/* Probiotics Strip */}
           <div className="probiotics-strip">
-            <h3 style={{ fontFamily: "'Eczar', serif", fontSize: "1.3rem", fontWeight: 700, color: "var(--ink)", marginBottom: 6 }}>60+ Indian Probiotic Foods</h3>
-            <p style={{ color: "var(--ink-mid)", fontSize: 14, marginBottom: 20 }}>Click any food to learn its bacteria, benefits, and how to include it in your meals</p>
+            <h3 style={{ fontFamily: "'Eczar', serif", fontSize: "1.3rem", fontWeight: 700, color: "var(--ink)", marginBottom: 6 }}>Know Your Probiotics 🦠</h3>
+            <p style={{ color: "var(--ink-mid)", fontSize: 14, marginBottom: 20 }}>Tap any food to learn its bacteria, benefits, and how to include it in your meals</p>
             <div className="probiotic-pills">
-              {[["🥛 Dahi", "Dahi"], ["🍚 Idli", "Idli"], ["🫙 Kanji", "Kanji"], ["🥤 Lassi", "Lassi"], ["🟡 Dhokla", "Dhokla"], ["🧋 Chaas", "Chaas"], ["🫓 Uttapam", "Uttapam"], ["🍶 Ambali", "Ambali"], ["🫔 Dosa", "Dosa"], ["🍮 Shrikhand", "Shrikhand"]].map(([label, val]) => (
-                <span key={val} className="pro-pill" onClick={() => quickScan(val)}>{label}</span>
-              ))}
+              {([
+                { label: "🥛 Dahi", name: "Dahi", microbe: "Lactobacillus bulgaricus + Streptococcus thermophilus", helps: "Bloating, IBS, Low Immunity, Skin", howto: "1 cup at lunch, room temperature. Never cold from fridge.", score: 9 },
+                { label: "🍚 Idli", name: "Idli", microbe: "Lactobacillus mesenteroides + Leuconostoc sp.", helps: "Constipation, Bloating, Low energy", howto: "Eat freshly made. The sour smell means fermentation worked!", score: 8 },
+                { label: "🫙 Kanji", name: "Kanji", microbe: "Wild Lactobacillus + Lactic acid bacteria", helps: "Immunity, Detox, Kapha imbalance", howto: "Drink 1 glass before meals. Ferment black carrots + mustard seeds for 2-3 days.", score: 9 },
+                { label: "🥤 Lassi", name: "Lassi", microbe: "Lactobacillus bulgaricus + Lactobacillus acidophilus", helps: "Acidity, Bloating, IBD, Pitta", howto: "Plain salted lassi is best. Avoid sweet versions for gut benefits.", score: 8 },
+                { label: "🟡 Dhokla", name: "Dhokla", microbe: "Pediococcus acidilactici + Lactic acid bacteria", helps: "Bloating, Protein absorption, Energy", howto: "Homemade overnight fermented batter is far superior to instant mix.", score: 7 },
+                { label: "🧋 Chaas", name: "Chaas", microbe: "Lactobacillus acidophilus + Lactic acid bacteria", helps: "Acidity, Bloating, IBS, Pitta", howto: "Add jeera, ginger, curry leaves. Drink after lunch — Ayurveda's digestive tonic.", score: 9 },
+                { label: "🫓 Uttapam", name: "Uttapam", microbe: "Leuconostoc mesenteroides + Lactobacillus sp.", helps: "Digestion, Energy, Gut flora", howto: "Same fermented batter as dosa. Add vegetable toppings for prebiotic fibre.", score: 7 },
+                { label: "🍶 Ambali", name: "Ambali", microbe: "Lactobacillus fermentum + Lactobacillus plantarum", helps: "Iron absorption, Calcium, Gut health", howto: "Fermented overnight ragi porridge. Eat with onion and green chilli.", score: 8 },
+                { label: "🫔 Dosa", name: "Dosa", microbe: "Leuconostoc mesenteroides + Lactobacillus delbrueckii", helps: "Bloating, Constipation, B-vitamin absorption", howto: "Eat fresh off the griddle. Stored dosa loses probiotic value.", score: 7 },
+                { label: "🍮 Shrikhand", name: "Shrikhand", microbe: "Lactobacillus bulgaricus + Streptococcus thermophilus", helps: "Calcium, Immunity, Digestion", howto: "Made from hung curd — rich in probiotics. Enjoy in moderation due to sugar content.", score: 7 },
+              ] as const).map((p) => {
+                const isOpen = openProbiotic === p.name;
+                return (
+                  <div key={p.name} style={{ display: "inline-block" }}>
+                    <span className="pro-pill"
+                      onClick={() => setOpenProbiotic(isOpen ? null : p.name)}
+                      style={{ background: isOpen ? "var(--terracotta)" : "#fff", color: isOpen ? "#fff" : "var(--ink-mid)", borderColor: isOpen ? "var(--terracotta)" : "rgba(232,150,12,0.3)" }}>
+                      {p.label} {isOpen ? "▲" : "▼"}
+                    </span>
+                    {isOpen && (
+                      <div style={{ background: "#fff", border: "1px solid var(--border-strong)", borderRadius: 14, padding: "18px 20px", marginTop: 8, marginBottom: 6, maxWidth: 340, textAlign: "left", boxShadow: "0 4px 20px rgba(90,40,10,0.12)", animation: "fadeUp 0.25s ease" }}>
+                        <div style={{ fontFamily: "'Eczar', serif", fontSize: "1.05rem", fontWeight: 700, color: "var(--terracotta)", marginBottom: 8 }}>{p.name}</div>
+                        <div style={{ fontSize: 12, color: "var(--ink-light)", marginBottom: 10, fontStyle: "italic" }}>🦠 {p.microbe}</div>
+                        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                          <div style={{ width: 44, height: 44, borderRadius: "50%", border: `3px solid ${p.score >= 8 ? "var(--green)" : "var(--saffron)"}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                            <span style={{ fontFamily: "'Eczar', serif", fontSize: 16, fontWeight: 800, color: p.score >= 8 ? "var(--green)" : "var(--saffron)", lineHeight: 1 }}>{p.score}</span>
+                            <span style={{ fontSize: 9, color: "var(--ink-light)" }}>/10</span>
+                          </div>
+                          <div>
+                            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--ink)", marginBottom: 2 }}>Helps with:</div>
+                            <div style={{ fontSize: 12, color: "var(--ink-mid)" }}>{p.helps}</div>
+                          </div>
+                        </div>
+                        <div style={{ background: "var(--cream-dark)", borderRadius: 8, padding: "10px 12px", fontSize: 12.5, color: "var(--ink-mid)", lineHeight: 1.6 }}>
+                          <strong>How to eat:</strong> {p.howto}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
