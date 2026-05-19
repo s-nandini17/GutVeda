@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 // ─────────────────────────────────────────────
 // TYPES
 // ─────────────────────────────────────────────
-type Page = "home" | "chat" | "profile";
+type Page = "home" | "learn" | "chat" | "profile";
 type ProfileSection = "basics" | "conditions" | "score" | "history" | "tips";
 type DoshaType = "" | "Vata" | "Pitta" | "Kapha" | "Vata-Pitta" | "Pitta-Kapha" | "Tridoshic";
 
@@ -240,6 +240,7 @@ function ScoreArc({ avg }: { avg: number | null }) {
 export default function GutVeda() {
   const [page, setPage] = useState<Page>("home");
   const [profileSection, setProfileSection] = useState<ProfileSection>("basics");
+  const [learnTab, setLearnTab] = useState<"science" | "dosha" | "microbes">("science");
 
   // Profile state
   const [profile, setProfile] = useState<Profile>({
@@ -788,6 +789,74 @@ export default function GutVeda() {
           .stats-strip { gap: 32px; padding: 24px 20px; }
           .features-section { padding: 0 20px; }
         }
+
+        /* LEARN HUB STYLES */
+        .learn-wrap { max-width: 960px; margin: 0 auto; padding: 36px 28px 80px; }
+        .learn-header { text-align: center; margin-bottom: 36px; }
+        .learn-header h2 { font-family: 'Eczar', serif; font-size: 2rem; font-weight: 800; color: var(--ink); }
+        .learn-header p { font-size: 14.5px; color: var(--ink-light); margin-top: 6px; }
+        
+        .learn-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+        .learn-tab-btn {
+          font-family: 'Hind', sans-serif; font-size: 14px; font-weight: 600;
+          padding: 8px 20px; border-radius: 50px; border: 1.5px solid var(--border-strong);
+          background: transparent; color: var(--ink-mid); cursor: pointer; transition: all 0.2s;
+        }
+        .learn-tab-btn:hover { background: var(--terracotta-pale); border-color: var(--terracotta); color: var(--terracotta); }
+        .learn-tab-btn.active { background: var(--terracotta); border-color: var(--terracotta); color: #fff; box-shadow: 0 4px 12px rgba(181,69,27,0.15); }
+
+        /* Timeline styles for fermentation science */
+        .ferment-timeline { display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 20px; margin: 24px 0; }
+        .ferment-timeline::before {
+          content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px;
+          background: linear-gradient(180deg, var(--terracotta), var(--saffron), var(--green));
+        }
+        .timeline-step { position: relative; padding-left: 20px; }
+        .timeline-bullet {
+          position: absolute; left: -19px; top: 4px; width: 12px; height: 12px;
+          border-radius: 50%; background: #fff; border: 3.5px solid var(--terracotta);
+          z-index: 2; transition: all 0.2s;
+        }
+        .timeline-step:nth-child(2) .timeline-bullet { border-color: var(--saffron); }
+        .timeline-step:nth-child(3) .timeline-bullet { border-color: var(--green); }
+        .timeline-step:nth-child(4) .timeline-bullet { border-color: var(--ink); }
+        .timeline-content {
+          background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
+          padding: 16px 20px; box-shadow: var(--shadow);
+        }
+        .timeline-time { font-size: 11px; font-weight: 700; color: var(--terracotta); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
+        .timeline-title { font-family: 'Eczar', serif; font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+        .timeline-desc { font-size: 13px; color: var(--ink-light); line-height: 1.55; }
+
+        /* Science card */
+        .info-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
+        .info-card-title { font-family: 'Eczar', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+        .info-card-sub { font-size: 13.5px; color: var(--ink-light); line-height: 1.6; margin-bottom: 16px; }
+
+        /* Dosha explorer */
+        .dosha-table-container { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-top: 18px; box-shadow: var(--shadow); background: #fff; }
+        .dosha-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
+        .dosha-table th { background: var(--cream-dark); color: var(--ink); font-weight: 700; font-family: 'Eczar', serif; padding: 12px 16px; border-bottom: 1.5px solid var(--border-strong); }
+        .dosha-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); color: var(--ink-mid); vertical-align: top; }
+        .dosha-table tr:last-child td { border-bottom: none; }
+        .dosha-table-badge { display: inline-block; padding: 3px 10px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+
+        /* Microbe cards */
+        .microbe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
+        .microbe-card {
+          background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
+          padding: 20px; box-shadow: var(--shadow); transition: all 0.2s; position: relative; overflow: hidden;
+        }
+        .microbe-card:hover { transform: translateY(-2px); border-color: var(--sand); box-shadow: var(--shadow-md); }
+        .microbe-card::after { content: '🦠'; position: absolute; right: 12px; bottom: 8px; font-size: 40px; opacity: 0.05; }
+        .microbe-name { font-family: 'Eczar', serif; font-size: 16px; font-weight: 700; color: var(--terracotta); margin-bottom: 4px; font-style: italic; }
+        .microbe-source { font-size: 11.5px; color: var(--ink-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+        .microbe-benefit { font-size: 13px; color: var(--ink-mid); line-height: 1.55; }
+
+        @media (max-width: 680px) {
+          .learn-tabs { flex-wrap: wrap; }
+          .ferment-timeline { padding-left: 10px; }
+        }
       `}</style>
 
       {/* TOP NAV */}
@@ -796,9 +865,9 @@ export default function GutVeda() {
           <span>🌿</span>Gut<span className="ink">Veda</span>
         </div>
         <div className="nav-links">
-          {(["home", "chat", "profile"] as Page[]).map((p) => (
+          {(["home", "learn", "chat", "profile"] as Page[]).map((p) => (
             <button key={p} className={`nav-link${page === p ? " active" : ""}`} onClick={() => showPage(p)}>
-              {p === "home" ? "Home" : p === "chat" ? "AI Guide" : "My Profile"}
+              {p === "home" ? "Home" : p === "learn" ? "Learn Hub" : p === "chat" ? "AI Guide" : "My Profile"}
             </button>
           ))}
         </div>
@@ -1042,7 +1111,7 @@ export default function GutVeda() {
                 { icon: "🧠", bg: "#FDF3DC", name: "AI Gut Guide", desc: "Ask your personal Ayurvedic wellness guide anything about gut health, foods, and your dosha.", page: "chat" as Page },
                 { icon: "🧬", bg: "var(--terracotta-pale)", name: "My Gut Plan", desc: "Set your dosha, conditions, and goals. Get a personalised probiotic meal roadmap.", page: "profile" as Page },
                 { icon: "📋", bg: "var(--green-light)", name: "Meal History", desc: "Every meal you scan is logged. Watch your gut score improve over time.", page: "profile" as Page },
-                { icon: "📚", bg: "#F0EAF8", name: "Learn Hub", desc: "Explore fermentation science, the three doshas, and gut bacteria in Indian cuisine.", page: null },
+                { icon: "📚", bg: "#F0EAF8", name: "Learn Hub", desc: "Explore fermentation science, the three doshas, and gut bacteria in Indian cuisine.", page: "learn" as Page },
               ].map((f) => (
                 <div key={f.name} className="feature-card" onClick={() => f.page && showPage(f.page)}>
                   <div className="feature-icon-wrap" style={{ background: f.bg }}>{f.icon}</div>
@@ -1102,6 +1171,253 @@ export default function GutVeda() {
               })}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ═══════════════════ LEARN HUB ═══════════════════ */}
+      {page === "learn" && (
+        <div className="learn-wrap fade-up">
+          <div className="learn-header">
+            <div className="badge">📚 GutVeda Knowledge Base</div>
+            <h2>Gut & Fermentation Science</h2>
+            <p>Bridging thousands of years of Ayurvedic insight with modern microbiome science</p>
+            <div style={{ marginTop: 14 }}>
+              <DividerMotif />
+            </div>
+          </div>
+
+          {/* Tab Selection */}
+          <div className="learn-tabs">
+            <button className={`learn-tab-btn${learnTab === "science" ? " active" : ""}`} onClick={() => setLearnTab("science")}>
+              🔬 Fermentation Science
+            </button>
+            <button className={`learn-tab-btn${learnTab === "dosha" ? " active" : ""}`} onClick={() => setLearnTab("dosha")}>
+              🌿 Dosha & Digestion
+            </button>
+            <button className={`learn-tab-btn${learnTab === "microbes" ? " active" : ""}`} onClick={() => setLearnTab("microbes")}>
+              🦠 Gut Microbiome Strains
+            </button>
+          </div>
+
+          {/* TAB 1: FERMENTATION SCIENCE */}
+          {learnTab === "science" && (
+            <div className="fade-up">
+              <div className="info-card">
+                <div className="info-card-title">Native Wild Fermentation vs. Industrial Processing</div>
+                <div className="info-card-sub">
+                  Why traditional Indian probiotic foods are far superior to store-bought pills and pasteurized yogurts.
+                </div>
+                <p style={{ fontSize: 13.5, color: "var(--ink-mid)", lineHeight: 1.65, marginBottom: 12 }}>
+                  Unlike modern industrial fermentation which relies on single-strain laboratory cultures and artificial starters, Indian cooking utilizes <strong>spontaneous wild fermentation</strong>. When preparing idli batter or setting dahi at home, the fermentation is driven by the microbial flora naturally present on the grains, leaves, and in your local air.
+                </p>
+                <p style={{ fontSize: 13.5, color: "var(--ink-mid)", lineHeight: 1.65 }}>
+                  This creates a highly resilient, multi-species consortium of beneficial bacteria and wild yeasts that work in symbiosis. Furthermore, traditional foods are never pasteurized after fermentation, ensuring billions of live, active microbes reach your gut, complete with their digestive enzymes and protective postbiotics.
+                </p>
+              </div>
+
+              <h3 style={{ fontFamily: "'Eczar', serif", fontSize: "1.25rem", fontWeight: 700, color: "var(--ink)", marginTop: 24, marginBottom: 4 }}>
+                The 4 Stages of Wild Batter Fermentation 🧬
+              </h3>
+              <p style={{ fontSize: 13, color: "var(--ink-light)" }}>The microscopic timeline inside a simple bowl of fermenting Idli/Dosa batter</p>
+
+              <div className="ferment-timeline">
+                <div className="timeline-step">
+                  <div className="timeline-bullet" />
+                  <div className="timeline-content">
+                    <div className="timeline-time">Hour 0 – 2: Incubation & Microbial Awakening</div>
+                    <div className="timeline-title">Awakening the Native Flora</div>
+                    <div className="timeline-desc">
+                      Grains (rice & urad dal) are soaked and ground. Water activates enzymes and wild microorganisms residing on the grain husks. The mixture enters a warm, dark space to trigger metabolic pathways.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="timeline-step">
+                  <div className="timeline-bullet" />
+                  <div className="timeline-content">
+                    <div className="timeline-time">Hour 2 – 8: Acidification Phase</div>
+                    <div className="timeline-title">Leuconostoc Mesenteroides Takes Lead</div>
+                    <div className="timeline-desc">
+                      The lactic acid bacteria <em>Leuconostoc mesenteroides</em> multiplies rapidly. It consumes complex carbohydrates and produces lactic acid, dropping the pH to around 4.5. This natural acidity keeps the batter safe, suppressing any unwanted or harmful pathogens.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="timeline-step">
+                  <div className="timeline-bullet" />
+                  <div className="timeline-content">
+                    <div className="timeline-time">Hour 8 – 14: Aeration & Rising Phase</div>
+                    <div className="timeline-title">Yeast Co-activation & Sponginess</div>
+                    <div className="timeline-desc">
+                      As the acidity builds, native wild yeasts (like <em>Saccharomyces</em>) thrive and produce carbon dioxide gas. This gas gets trapped in the batter's protein network, causing it to double in size. This natural aeration is what makes idlis incredibly soft, airy, and light.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="timeline-step">
+                  <div className="timeline-bullet" />
+                  <div className="timeline-content">
+                    <div className="timeline-time">Hour 14+: Nutrient Synthesis</div>
+                    <div className="timeline-title">Mineral Release & Vitamin B12 Synthesis</div>
+                    <div className="timeline-desc">
+                      Microbial enzymes break down phytic acid (which normally locks up iron, zinc, and calcium in grains), unlocking these essential minerals for easy absorption. At the same time, the bacteria synthesize rich B-complex vitamins, turning a simple batter into a bio-available prebiotic-probiotic powerhouse.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: DOSHA & DIGESTION */}
+          {learnTab === "dosha" && (
+            <div className="fade-up">
+              <div className="info-card">
+                <div className="info-card-title">Agni: The Ayurvedic Foundation of Gut Health</div>
+                <div className="info-card-sub">
+                  How your unique mind-body constitution shapes your digestive fire and determines your ideal probiotics.
+                </div>
+                <p style={{ fontSize: 13.5, color: "var(--ink-mid)", lineHeight: 1.65, marginBottom: 12 }}>
+                  In Ayurveda, digestion is governed by <strong>Agni</strong> (the sacred internal fire). Probiotics are not a one-size-fits-all cure. A probiotic food that heals one person might cause acidity, heavy mucus, or gas in another, depending entirely on which dosha is dominant in their digestive system.
+                </p>
+                <p style={{ fontSize: 13.5, color: "var(--ink-mid)", lineHeight: 1.65 }}>
+                  By understanding your Agni type, you can choose foods that actively stoke your digestive fire rather than smothering it. Read through the alignment matrix below to discover which traditional probiotics will harmonize perfectly with your type.
+                </p>
+              </div>
+
+              <h3 style={{ fontFamily: "'Eczar', serif", fontSize: "1.25rem", fontWeight: 700, color: "var(--ink)", marginTop: 24, marginBottom: 8 }}>
+                Ayurvedic Digestive Alignment Matrix 🌿
+              </h3>
+
+              <div className="dosha-table-container">
+                <table className="dosha-table">
+                  <thead>
+                    <tr>
+                      <th style={{ width: "20%" }}>Dosha & Gut Type</th>
+                      <th style={{ width: "25%" }}>Agni (Digestive Fire)</th>
+                      <th style={{ width: "30%" }}>Gut Characteristics</th>
+                      <th style={{ width: "25%" }}>Best Probiotics</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span className="dosha-table-badge dosha-vata">🌬️ Vata</span>
+                      </td>
+                      <td>
+                        <strong>Vishamagni</strong>
+                        <div style={{ fontSize: 11, color: "var(--ink-light)" }}>Erratic & Unstable</div>
+                      </td>
+                      <td>Prone to bloating, gas, dryness, erratic appetite, and chronic constipation. Cold foods aggravate this.</td>
+                      <td>
+                        <div style={{ fontSize: 12.5, lineHeight: 1.5 }}>
+                          • Room-temp spiced buttermilk (Chaas)<br />
+                          • Curd rice with warm ghee<br />
+                          • Overnight fermented ragi Ambali
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="dosha-table-badge dosha-pitta">🔥 Pitta</span>
+                      </td>
+                      <td>
+                        <strong>Tikshnagni</strong>
+                        <div style={{ fontSize: 11, color: "var(--ink-light)" }}>Sharp & Intense</div>
+                      </td>
+                      <td>Hyperactive digestion, high heat, prone to acid reflux, heartburn, inflammatory bowel, and loose stools.</td>
+                      <td>
+                        <div style={{ fontSize: 12.5, lineHeight: 1.5 }}>
+                          • Cooling salted/sweet Lassi<br />
+                          • Fresh, non-sour Dahi with mint<br />
+                          • Sweet Shrikhand in moderation<br />
+                          • Cooling cucumber Raita
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="dosha-table-badge dosha-kapha">🌊 Kapha</span>
+                      </td>
+                      <td>
+                        <strong>Mandagni</strong>
+                        <div style={{ fontSize: 11, color: "var(--ink-light)" }}>Slow & Sluggish</div>
+                      </td>
+                      <td>Slow, heavy digestion, sluggish metabolism, feelings of lethargy after eating, and excess mucus.</td>
+                      <td>
+                        <div style={{ fontSize: 12.5, lineHeight: 1.5 }}>
+                          • Spicy North Indian Kanji<br />
+                          • Diluted Chaas with black pepper, ginger, and cumin<br />
+                          <span style={{ color: "var(--terracotta)", fontWeight: 500 }}>* Avoid heavy, sweet curds</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: GUT MICROBIOME */}
+          {learnTab === "microbes" && (
+            <div className="fade-up">
+              <div className="info-card">
+                <div className="info-card-title">Traditional Strains and the Indian Gut</div>
+                <div className="info-card-sub">
+                  Exploring the specific beneficial bacterial strains that make traditional Indian cooking a modern probiotic powerhouse.
+                </div>
+                <p style={{ fontSize: 13.5, color: "var(--ink-mid)", lineHeight: 1.65 }}>
+                  The human gut microbiome thrives on variety. Traditional Indian fermented foods are exceptionally rich in lactic acid bacteria (LAB) and native wild yeasts. These strains work in harmony to colonize your digestive tract, synthesize essential vitamins, regulate bowel habits, and support the gut-brain axis.
+                </p>
+              </div>
+
+              <h3 style={{ fontFamily: "'Eczar', serif", fontSize: "1.25rem", fontWeight: 700, color: "var(--ink)", marginTop: 24, marginBottom: 4 }}>
+                Beneficial Strains in Indian Cuisine 🦠
+              </h3>
+              <p style={{ fontSize: 13, color: "var(--ink-light)", marginBottom: 12 }}>Detailed biological view of the microscopic helpers inside your meals</p>
+
+              <div className="microbe-grid">
+                <div className="microbe-card">
+                  <div className="microbe-name">Leuconostoc mesenteroides</div>
+                  <div className="microbe-source">🥣 Idli & Dosa Batter</div>
+                  <div className="microbe-benefit">
+                    The crucial initiator strain of wild batter fermentation. It consumes simple sugars and generates key carbon dioxide bubbles and organic acids. It synthesizes dextran and B-complex vitamins, helping to outcompete and suppress pathogenic bacteria.
+                  </div>
+                </div>
+
+                <div className="microbe-card">
+                  <div className="microbe-name">Lactiplantibacillus plantarum</div>
+                  <div className="microbe-source">🫙 Kanji & Wild Pickles</div>
+                  <div className="microbe-benefit">
+                    An exceptionally robust, highly acid-tolerant strain that successfully survives the harsh stomach acid to colonize the large intestine. Powerfully anti-inflammatory, it helps repair the gut lining and significantly reduces chronic bloating and gas.
+                  </div>
+                </div>
+
+                <div className="microbe-card">
+                  <div className="microbe-name">Lactobacillus acidophilus</div>
+                  <div className="microbe-source">🥛 Homemade Dahi & Chaas</div>
+                  <div className="microbe-benefit">
+                    One of the most researched and potent gut colonizers. It breaks down lactose into digestible lactic acid, supports general immunity by reinforcing mucosal layers, and produces natural antimicrobial factors that keep digestive infections at bay.
+                  </div>
+                </div>
+
+                <div className="microbe-card">
+                  <div className="microbe-name">Lactobacillus fermentum</div>
+                  <div className="microbe-source">🍶 Fermented Ragi Ambali</div>
+                  <div className="microbe-benefit">
+                    A strain that excels at degrading phytic acid (which locks up iron, calcium, and zinc in grains), enabling your body to absorb these vital minerals easily. It also stimulates protective immune response pathways in the gut lining.
+                  </div>
+                </div>
+
+                <div className="microbe-card">
+                  <div className="microbe-name">Streptococcus thermophilus</div>
+                  <div className="microbe-source">🍮 Fresh Curd & Shrikhand</div>
+                  <div className="microbe-benefit">
+                    Works in close, highly cooperative symbiosis with L. bulgaricus to set curd. It excels at breaking down milk sugars, providing quick digestive relief for those with minor lactose intolerances, and helping soothe acute intestinal irritation.
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
